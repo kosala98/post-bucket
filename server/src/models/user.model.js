@@ -7,4 +7,5 @@ const UserSchema = new Schema({
   dispayName: { type: Schema.Types.String },
 });
 
-module.exports = model("user", UserSchema);
+const UserModel = model("user", UserSchema);
+module.exports = UserModel;
