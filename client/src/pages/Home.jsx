@@ -40,7 +40,7 @@ export default function Home() {
 
             <Button
               component="a"
-              href="https://github.com/JanithSamee/intergration-workshop-project-client"
+              href="https://github.com/kosala98/post-bucket"
               size="xl"
               variant="default"
               className={classes.control}
