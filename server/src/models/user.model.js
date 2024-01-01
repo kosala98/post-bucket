@@ -1,5 +1,6 @@
 const { model, Schema } = require("mongoose");
 
+// create db schema
 const UserSchema = new Schema({
   username: { type: Schema.Types.String, unique: true },
   email: { type: Schema.Types.String, unique: true },
