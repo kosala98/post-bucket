@@ -8,6 +8,7 @@ const router = require("./src/routes/_index.routes");
 const SERVER_PORT = process.env.SERVER_PORT || 5000;
 
 const app = express();
+app.use(cors({ origin: "*" }));
 // middleware
 app.use(bodyParser.json());
 connectDB();
