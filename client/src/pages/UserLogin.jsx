@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Button, Center, Text, TextInput } from "@mantine/core";
 import { Link } from "react-router-dom";
 import LoginImage from "../assets/Login.PNG";
 
 export default function Login() {
+  const [formData, setFormData] = useState({ username: "", password: "" });
+
+  async function handleSubmit() {
+    try {
+      const res = await login(formData);
+      if (res.status === 200 && res.data.token) {
+        window.location.replace("/account");
+        localStorage.setItem("token", res.data.token);
+      }
+      console.log(res);
+    } catch (error) {
+      alert("Login Errror Occured");
+    }
+  }
+
   return (
     <div
       style={{
@@ -38,11 +53,17 @@ export default function Login() {
           <img src={LoginImage} alt="" style={{ height: "300px" }} />
           <TextInput
             label="Username"
+            onChange={(e) =>
+              setFormData({ ...formData, username: e.target.value })
+            }
             style={{ width: "100%", marginBottom: "16px" }}
           />
           <TextInput
             label="Password"
             type="password"
+            onChange={(e) =>
+              setFormData({ ...formData, password: e.target.value })
+            }
             style={{ width: "100%", marginBottom: "24px" }}
           />
           <Button
@@ -50,6 +71,7 @@ export default function Login() {
             color="teal"
             mt={8}
             mb={8}
+            onClick={() => handleSubmit()}
             style={{
               width: "100%",
               backgroundColor: "#008080",
