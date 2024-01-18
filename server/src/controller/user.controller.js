@@ -15,11 +15,11 @@ async function login(req, res) {
       const token = jwt.sign(
         {
           _id: user.id,
-          username: username.username,
+          username: user.username,
           email: user.email,
         },
         JWT_TOKEN,
-        { expiresIn: "12h" }
+        { expiresIn: "11h" }
       );
       res.json({ token });
     } else {
