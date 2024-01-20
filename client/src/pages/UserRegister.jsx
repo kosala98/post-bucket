@@ -14,7 +14,7 @@ export default function UserRegister() {
     try {
       const res = await register(formData);
 
-      if (res.status == 200) {
+      if (res.status === 200) {
         alert("User Created Successfully");
         window.location.replace("/login");
       }
