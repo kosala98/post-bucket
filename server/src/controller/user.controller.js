@@ -50,7 +50,7 @@ async function register(req, res) {
       email,
     });
     console.log(dbRes);
-    res.json({ msg: "User Created" });
+    res.json({ msg: "User Created Successfully" });
   } catch (error) {
     console.log(error);
     res.status(500).json({ msg: "Server side Error occured.!" });
